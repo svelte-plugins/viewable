@@ -14,7 +14,7 @@
     "predeploy": "rollup -c",
     "deploy": "npx gh-pages -d dist",
     "prepack": "BUNDLE=true rollup -c",
-    "lint": "eslint --fix --max-warnings=0 \"src/**/*.{.js,svelte}\"",
+    "lint": "eslint --fix \"src/**/*.{.js,svelte}\"",
     "format": "prettier --write \"src/**/*.{js,json,svelte}\"",
     "test": "jest --coverage",
     "test:coverage": "jest --coverage && open ./coverage/lcov-report/index.html",
