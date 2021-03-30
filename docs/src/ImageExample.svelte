@@ -1,5 +1,5 @@
 <script>
-  import Viewable from "svelte-viewable";
+  import Viewable from "@svelte-plugins/viewable";
 
 	let element;
 	let imageSource = null;

@@ -27,6 +27,9 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
+"@svelte-plugins/viewable@../":
+  version "0.1.0"
+
 "@sveltejs/vite-plugin-svelte@^1.0.0-next.5":
   version "1.0.0-next.5"
   resolved "https://registry.yarnpkg.com/@sveltejs/vite-plugin-svelte/-/vite-plugin-svelte-1.0.0-next.5.tgz#8cf608f7a3c33dfa5b648397aae1ba90e6a4883f"
@@ -365,9 +368,6 @@ svelte-preprocess@^4.6.9:
     "@types/sass" "^1.16.0"
     detect-indent "^6.0.0"
     strip-indent "^3.0.0"
-
-svelte-viewable@../:
-  version "0.1.0"
 
 svelte@^3.35.0:
   version "3.36.0"

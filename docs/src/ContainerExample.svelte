@@ -1,5 +1,5 @@
 <script>
-	import Viewable from "svelte-viewable";
+	import Viewable from "@svelte-plugins/viewable";
 
 	// you can use a single callback or separate callbacks for each rule
 	const fn = (definition) => (activeRule = definition.rule);
