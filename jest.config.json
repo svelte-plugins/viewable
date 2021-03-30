@@ -2,10 +2,15 @@
   "rootDir": "./",
   "verbose": true,
   "snapshotResolver": "<rootDir>/tests/unit/snapshot-resolver.js",
+  "restoreMocks": true,
   "transform": {
     "^.+\\.test.js$": "babel-jest",
     "^.+\\.svelte$": "jest-transform-svelte"
   },
+  "collectCoverageFrom": [
+    "src/**/*.svelte",
+    "!<rootDir>/src/*.test.svelte"
+  ],
   "moduleNameMapper": {
     "^tests/(.*)$": "<rootDir>/tests/$1"
   },
@@ -17,7 +22,6 @@
     "svelte"
   ],
   "setupFilesAfterEnv": [
-    "@testing-library/jest-dom/extend-expect",
-    "<rootDir>/tests/unit/setup.js"
+    "@testing-library/jest-dom/extend-expect"
   ]
 }

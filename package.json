@@ -24,26 +24,22 @@
   "devDependencies": {
     "@babel/core": "^7.13.1",
     "@babel/eslint-parser": "^7.13.10",
-    "@babel/plugin-proposal-export-default-from": "^7.12.13",
-    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/plugin-transform-runtime": "^7.13.7",
     "@babel/preset-env": "^7.13.5",
     "@babel/runtime": "^7.13.7",
     "@rollup/plugin-alias": "^3.1.2",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^17.1.0",
     "@rollup/plugin-node-resolve": "^11.2.0",
-    "@rollup/plugin-strip": "^2.0.0",
     "@testing-library/cypress": "^7.0.4",
-    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/svelte": "^3.0.3",
-    "@testing-library/user-event": "^12.8.1",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "chalk": "^2.4.2",
     "chromatic": "^5.7.0",
     "chrome-remote-interface": "^0.29.0",
     "cypress": "^6.6.0",
+    "eslint": "^7.23.0",
     "eslint-plugin-jest": "^24.3.2",
     "eslint-plugin-svelte3": "^3.1.2",
     "figlet": "^1.2.4",
@@ -82,8 +78,5 @@
     "lib",
     "src",
     "types"
-  ],
-  "dependencies": {
-    "eslint": "^7.23.0"
-  }
+  ]
 }

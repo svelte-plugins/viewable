@@ -16,11 +16,10 @@
 
   const definitions = [];
 
-  /**
-   * Creates a viewability rule definition
-   * @param {String} rule Name of the corresponding ruleset
-   * @param {Array}  urls Array of beacons Urls
-   */
+  const logger = (...args) => debug && console.log(...args);
+
+  // Creates a rule definition for each viewabiltiy
+  // rule defined in `rules`
   const createRuleDefinitions = () => {
     for (let rule in rules) {
       const ruleDef = rules[rule];
@@ -29,10 +28,7 @@
 
       const callback = function (definition) {
         fn(definition);
-
-        if (debug) {
-          console.log('[ Viewable Rule ]\n' + JSON.stringify({ ...definition }, null, 2));
-        }
+        logger('[ Viewable Rule ]\n' + JSON.stringify({ ...definition }, null, 2));
       };
 
       const definition = {
@@ -78,8 +74,7 @@
 
   /**
    * Determine if there's an obstruction to the container overlays, overflow, etc...
-   * @param  {Element} element    Container element
-   * @param  {Object}  rect       Container rect object
+   * @param  {Object}  rect       Container rect
    * @param  {Number}  threshold  Current position minimum view threshold
    * @return {Boolean}            Returns true if the viewable area meets the minimum acceptable threshold
    *
@@ -184,9 +179,8 @@
 
           duration = (Date.now() - definition.history) / 1000;
 
-          if (debug) {
-            console.log(`[ Tracking - ${duration} - ${definition.rule}]`);
-          }
+          logger(`[ Tracking - ${duration} - ${definition.rule}]`);
+
           // check if threshold has been met or exceeded
           if (duration >= definition.duration) {
             // if definition timer, reset it
@@ -202,14 +196,10 @@
             definitions.splice(i, 1);
             i = i - 1;
 
-            if (debug) {
-              console.log(definitions);
-            }
+            logger(definitions);
 
             if (!definitions.length) {
-              if (debug) {
-                console.log(`[ Finished - ${definition.history} ]`);
-              }
+              logger(`[ Finished - ${definition.history} ]`);
 
               if (timer) {
                 clearInterval(timer);
@@ -227,14 +217,19 @@
   const track = (definition) => {
     const onIntersection = (entries) => {
       const entry = entries[0];
+
       // element has left the viewport, clear definition timer/history/duration
       if (!entry.isIntersecting) {
         definition.history = null;
       } else {
         // check if view threshold has been met
         if (entry.isIntersecting && !timer) {
-          checkViewability();
           timer = setInterval(checkViewability, intervalRate);
+
+          if (definition.duration === 0) {
+            // trigger immediate check
+            checkViewability();
+          }
         }
       }
     };

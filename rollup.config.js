@@ -1,12 +1,11 @@
 import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import svelte from 'rollup-plugin-svelte';
-import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
-const DEV = process.env.ROLLUP_WATCH;
-const BUNDLE = process.env.BUNDLE === 'true';
+const production = !process.env.ROLLUP_WATCH;
 
 export default () => {
   return ['es', 'umd'].map((format) => {
@@ -24,7 +23,7 @@ export default () => {
         commonjs(),
         svelte({
           compilerOptions: {
-            dev: DEV,
+            dev: !production,
             cssHash({ hash, css, name, filename }) {
               return `viewable-${hash(css)}`;
             }
@@ -33,26 +32,11 @@ export default () => {
         }),
         babel({
           "extensions": [".js", ".mjs", ".html", ".svelte"],
-          "babelHelpers": "runtime",
-          "exclude": ["/node_modules/**"],
-          "presets": [
-            [
-              "@babel/preset-env",
-              {
-                "targets": "> 0.25%, not dead"
-              }
-            ]
-          ],
-          "plugins": [
-            "@babel/plugin-syntax-dynamic-import",
-            [
-              "@babel/plugin-transform-runtime",
-              {
-                "useESModules": true
-              }
-            ]
-          ]
-        })
+          "babelHelpers": "bundled",
+          "exclude": ["/node_modules/**"]
+        }),
+
+        production && terser({ ie8: true })
       ]
     };
   });
