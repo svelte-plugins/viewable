@@ -6,7 +6,7 @@ const testConfig = {
 };
 
 describe('viewable.spec.js', testConfig, () => {
-  it('should load the viewer', () => {
+  it('should load app', () => {
     cy.get('#obstructions').then((element) => expect(element).to.exist);
   });
 });
