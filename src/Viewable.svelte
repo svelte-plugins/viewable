@@ -1,14 +1,55 @@
 <script>
   import { onDestroy, afterUpdate, tick } from 'svelte';
 
+  /**
+   * HTML Element to track
+   * @type {null | HTMLElement}
+   */
   export let element;
+  /**
+   * Objecting containging viewability rulesets
+   * @type {null | Object}
+   */
   export let rules;
+  /**
+   * Debug flag to enable console output
+   * @type {Boolean}
+   */
   export let debug = false;
+  /**
+   * Current in-view duration of the element
+   * @type {Number}
+   */
   export let duration = 0;
+  /**
+   * Current in-view percentage of the element
+   * @type {Number}
+   */
   export let percent = 0;
+  /**
+   * Current horizontal in-view percentage of the element
+   * @type {Number}
+   */
   export let percentX = 0;
+  /**
+   * Current vertical in-view percentage of the element
+   * @type {Number}
+   */
   export let percentY = 0;
+  /**
+   * Rate to sample once in-view
+   * @type {Number}
+   */
   export let intervalRate = 200;
+  /**
+   * Grid points for determining viewable percentage
+   * @type {Number}
+   */
+  export let gridSize = 20;
+  /**
+   * Disables checking for elements obstructing the tracked elements view
+   * @type {Boolean}
+   */
   export let disableObstructionDetection = false;
 
   let ready = null;
@@ -49,10 +90,9 @@
   /**
    * Creates a grid of container x/y coords to use for obstruction checking
    * @param  {Object} rect     Container getBoundingClientRect object
-   * @param  {Number} gridSize Size of grid to create (e.g. 10 = 10x10)
    * @return {Array}           Returns a multidimensional array of container x / y coords
    */
-  const createGrid = (rect, gridSize) => {
+  const createGrid = (rect) => {
     const size = gridSize + 1;
     const x = Math.floor(rect.width / size);
     const y = Math.floor(rect.height / size);
@@ -94,7 +134,7 @@
    * 5 / 25 * 100 = 20% obstructed / 80% viewable
    */
   const isObstructed = (rect, threshold) => {
-    const grid = createGrid(rect, 20);
+    const grid = createGrid(rect);
     let obstructed = 0;
 
     for (let i = 0, k = grid.length; i < k; i++) {
