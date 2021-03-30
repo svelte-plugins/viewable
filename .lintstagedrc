@@ -1,0 +1,3 @@
+{
+  "./src/**/*.{js,svelte,md,mdx,json}": ["eslint --fix", "prettier --write"]
+}
