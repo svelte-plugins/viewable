@@ -3,7 +3,9 @@
 exports[`Viewable_test should render the component 1`] = `
 <body>
   <div>
-    <div />
+    <div>
+      Hello World!
+    </div>
   </div>
 </body>
 `;

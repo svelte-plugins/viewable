@@ -131,7 +131,6 @@
 
   /**
    * Identifies the proportion of an element within the viewport
-   * @param  {Element} element   Target node for viewability verification
    * @param  {Number}  threshold Number representing the elements visible proportion
    * @return {Number}            The lowest ratio between the w/h of the element
    */
@@ -225,11 +224,7 @@
         // check if view threshold has been met
         if (entry.isIntersecting && !timer) {
           timer = setInterval(checkViewability, intervalRate);
-
-          if (definition.duration === 0) {
-            // trigger immediate check
-            checkViewability();
-          }
+          checkViewability();
         }
       }
     };

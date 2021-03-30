@@ -5,5 +5,5 @@
 </script>
 
 <Viewable {element} {...$$props}>
-  <div bind:this={element} />
+  <div bind:this={element}>Hello World!</div>
 </Viewable>
