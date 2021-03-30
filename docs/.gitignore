@@ -1,2 +1,7 @@
+.*
+!.gitignore
+*.log
+
+# generated
 build
-.vercel
+/node_modules
