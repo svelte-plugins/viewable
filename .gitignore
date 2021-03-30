@@ -1,0 +1,28 @@
+.*
+
+# except
+!.editorconfig
+!.eslintrc.json
+!.github
+!.gitignore
+!.gitkeep
+!.lintstagedrc.js
+!.node-version
+!.npmignore
+!.npmrc
+!.nvmrc
+!.prettierignore
+!.prettierrc.json
+!.lintstagedrc
+!.huskyrc
+!.storybook
+
+# generated
+node_modules
+lib
+dist
+.vercel
+
+# testing
+coverage
+artifacts
