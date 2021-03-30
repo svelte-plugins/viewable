@@ -36,7 +36,7 @@ export default () => {
           "exclude": ["/node_modules/**"]
         }),
 
-        production && terser({ ie8: true })
+        production && terser()
       ]
     };
   });

@@ -11,14 +11,14 @@
   "sideEffects": false,
   "scripts": {
     "dev": "rollup -cw",
-    "predeploy": "rollup -c",
+    "bundle": "rollup -c",
     "deploy": "npx gh-pages -d dist",
     "prepack": "BUNDLE=true rollup -c",
     "lint": "eslint --fix \"src/**/*.{.js,svelte}\"",
     "format": "prettier --write \"src/**/*.{js,json,svelte}\"",
     "test": "jest --coverage",
     "test:coverage": "jest --coverage && open ./coverage/lcov-report/index.html",
-    "test:integration": "mkdir -p ./tests/artifacts/cdplogs && yarn predeploy && yarn --cwd ./docs dev & cypress run --browser chrome --headless",
+    "test:integration": "mkdir -p ./tests/artifacts/cdplogs && yarn bundle && yarn --cwd ./docs dev & cypress run --browser chrome --headless",
     "test:integration:debug": "cypress open"
   },
   "devDependencies": {
