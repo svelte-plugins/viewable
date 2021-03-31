@@ -74,6 +74,7 @@
 
       const definition = {
         ...rest,
+        percentage,
         threshold,
         duration,
         callback,

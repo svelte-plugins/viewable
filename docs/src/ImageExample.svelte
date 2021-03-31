@@ -1,15 +1,15 @@
 <script>
   import Viewable from "@svelte-plugins/viewable";
 
-	let element;
-	let imageSource = null;
+  let element;
+  let imageSource = null;
 
-	const fn = async ({ src }) => {
+  const fn = async ({ src }) => {
     if (src) {
       console.log(src);
       imageSource = src;
-		}
-	};
+    }
+  };
 
   const rules = {
     // do something when this crosses the viewport
@@ -22,11 +22,11 @@
 </script>
 
 <Viewable {rules} {element}>
-	<img bind:this={element} src={imageSource} alt="testing" />
+  <img bind:this={element} src={imageSource} alt="testing" />
 </Viewable>
 
 <style>
-	img {
+  img {
     max-width: 300px;
-	}
+  }
 </style>
