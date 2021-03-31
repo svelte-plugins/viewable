@@ -27,7 +27,7 @@ npm i -D @svelte-plugins/viewable
   };
 
   const dwell = (definition) => {
-    console.log('50% of the element was visible for at least 4 consecutive seconds');
+    console.log(`${definition.percent}% of the element was visible for at least ${definition.duration} consecutive seconds`);
   };
 
   const rules = {
