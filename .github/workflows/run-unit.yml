@@ -2,7 +2,7 @@ name: Run unit tests
 on:
   pull_request:
     branches:
-      - master
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
