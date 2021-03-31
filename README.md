@@ -26,8 +26,8 @@ npm i -D @svelte-plugins/viewable
     console.log('element has crossed the viewport');
   };
 
-  const dwell = (definition) => {
-    console.log('50% of the element was visible for at least 4 consecutive seconds');
+  const dwell = ({ percentage, duration }) => {
+    console.log(`${percentage}% of the element was visible for at least ${duration} consecutive seconds.`);
   };
 
   const rules = {
