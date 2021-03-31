@@ -17,6 +17,8 @@
     whenHundredForFour: { duration: 6, percentage: 100, fn }
   };
 
+  export let enableObstructionDetection = false;
+
   let element;
   let duration;
   let percent;
@@ -26,10 +28,10 @@
   let debug = true;
 </script>
 
-<Viewable bind:duration bind:percent bind:percentY bind:percentX {rules} {element} {debug}>
+<Viewable bind:duration bind:percent bind:percentY bind:percentX {rules} {element} {enableObstructionDetection} {debug}>
   <div bind:this={element} class={`${activeRule}`}>
     <p>Duration: {duration}s</p>
-    <p>Viewable: {percent}% x: {percentX}% y: {percentY}%</p>
+    <p>Viewable area: {percent}% x: {percentX}% y: {percentY}%</p>
   </div>
 </Viewable>
 
