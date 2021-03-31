@@ -34,7 +34,7 @@ npm i -D @svelte-plugins/viewable
     // do something when the element enters the viewport
     immediately: { duration: 0, percentage: 0, fn: immediately },
     // do something when 50% of the element is visible for 4 seconds (consecutively)
-    dwell: { duration: 4, percentage: 50, fn },
+    dwell: { duration: 4, percentage: 50, fn: dwell },
   };
 
   let element;
