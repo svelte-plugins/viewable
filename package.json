@@ -1,6 +1,6 @@
 {
   "name": "@svelte-plugins/viewable",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "description": "A simple rule-based approach to tracking element viewability.",
   "author": "Kieran Boyle (https://github.com/dysfunc)",
@@ -39,12 +39,12 @@
     "dev": "rollup -cw",
     "bundle": "rollup -c",
     "deploy": "npx gh-pages -d dist",
-    "prepack": "BUNDLE=true rollup -c",
     "lint": "eslint --fix \"src/**/*.{.js,svelte}\"",
     "format": "prettier --write \"src/**/*.{js,json,svelte}\"",
+    "install:docs": "yarn --cwd ./docs",
     "test": "jest --coverage",
     "test:coverage": "jest --coverage && open ./coverage/lcov-report/index.html",
-    "test:integration": "mkdir -p ./tests/artifacts/cdplogs && yarn bundle && yarn --cwd ./docs && yarn --cwd ./docs dev & cypress run --browser chrome --headless",
+    "test:integration": "mkdir -p ./tests/artifacts/cdplogs && yarn bundle && yarn --cwd ./docs dev & cypress run --browser chrome --headless",
     "test:integration:debug": "cypress open"
   },
   "devDependencies": {

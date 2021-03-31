@@ -2,9 +2,9 @@
   import ContainerExample from './ContainerExample.svelte';
   import ImageExample from "./ImageExample.svelte";
 
-  let obstructions = false;
+  let enableObstructionDetection = false;
 
-  const handleClick = () => (obstructions = !obstructions);
+  const handleClick = () => (enableObstructionDetection = !enableObstructionDetection);
 </script>
 
 <button id="obstructions" on:click={handleClick}>
@@ -13,13 +13,13 @@
 
 Scroll down...
 
-{#if obstructions}
+{#if enableObstructionDetection}
   <div id="overlay"></div>
 {/if}
 
 <div class="container">
   <p>Open dev console to see debug output.</p>
-  <ContainerExample />
+  <ContainerExample enableObstructionDetection={enableObstructionDetection} />
 </div>
 
 <div class="container">
@@ -68,7 +68,7 @@ Scroll down...
     top: 15%;
     z-index: 99;
   }
-  
+
   .container {
     border-bottom: 1px solid #eee;
     height: 100vh;

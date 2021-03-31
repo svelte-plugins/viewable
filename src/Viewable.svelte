@@ -47,10 +47,10 @@
    */
   export let gridSize = 20;
   /**
-   * Disables checking for elements obstructing the tracked elements view
+   * Enables checking for elements obstructing the tracked elements view (popups, modals, overlays, etc.)
    * @type {Boolean}
    */
-  export let disableObstructionDetection = false;
+  export let enableObstructionDetection = false;
 
   let ready = null;
   let timer = null;
@@ -150,10 +150,13 @@
 
     const minimum = threshold * 100;
     const viewable = 100 - (obstructed / grid.length) * 100;
+    const viewableMinimumNotMet = viewable < minimum;
 
-    percent = Math.round(Math.ceil(viewable));
+    if (viewableMinimumNotMet) {
+      percent = viewable.toFixed(0);
+    }
 
-    return !(viewable >= minimum);
+    return viewableMinimumNotMet;
   };
 
   /**
@@ -172,8 +175,8 @@
 
   /**
    * Identifies the proportion of an element within the viewport
-   * @param  {Number}  threshold Number representing the elements visible proportion
-   * @return {Number}            The lowest ratio between the w/h of the element
+   * @param  {Number} threshold The required minimum viewable area of the element (from the rule)
+   * @return {Number}           The percentage of the elements viewable area
    */
   const inViewRatio = (threshold) => {
     const viewport = getViewport();
@@ -184,11 +187,11 @@
     const visibleWidthRatio = visibleWidth / (rect.width || element.offsetWidth) || 0;
     const percentageViewable = Math.max(0, visibleHeightRatio + visibleWidthRatio - 1);
 
-    percentX = Math.round(Math.ceil(visibleWidthRatio * 100));
-    percentY = Math.round(Math.ceil(visibleHeightRatio * 100));
-    percent = Math.round(Math.ceil(percentageViewable * 100));
+    percentX = (visibleWidthRatio * 100).toFixed(0);
+    percentY = (visibleHeightRatio * 100).toFixed(0);
+    percent = (percentageViewable * 100).toFixed(0);
 
-    if (!disableObstructionDetection && isObstructed(rect, threshold)) {
+    if (enableObstructionDetection && isObstructed(rect, threshold)) {
       return 0;
     }
 
