@@ -1,4 +1,4 @@
-# svelte-viewable
+# @svelte-plugins/viewable
 
 ## Changelog
 
