@@ -29,7 +29,6 @@ import '@testing-library/cypress/add-commands';
 
 Cypress.Commands.add('loadApp', () => {
   cy.visit('http://localhost:3000');
-  cy.wait(2000);
 });
 
 Cypress.Commands.add('isInViewport', { prevSubject: true }, (subject) => {
