@@ -72,3 +72,10 @@ button:not(:disabled):active {
 button:focus {
   border-color: #666;
 }
+
+.github-ribbon {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+}

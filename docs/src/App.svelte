@@ -2,13 +2,12 @@
   import ContainerExample from './ContainerExample.svelte';
 
   let enableObstructionDetection = false;
+  let status = 'Hidden';
 
   const handleClick = () => (enableObstructionDetection = !enableObstructionDetection);
-</script>
 
-<button id="obstructions" data-testid="toggle-obstructions" on:click={handleClick}>
-  Toggle Obstructions
-</button>
+  $: status = enableObstructionDetection ? 'Visible' : 'Hidden';
+</script>
 
 {#if enableObstructionDetection}
   <div id="overlay"></div>
@@ -16,7 +15,10 @@
 
 <div class="container flex flex-col px-4 m-8 mx-auto space-y-4 sm:px-6 lg:px-8">
   <div class="container">
-    <p class="badge">Open dev console to see debug output.</p>
+    <button id="obstructions" class="badge" data-testid="toggle-obstructions" class:on={enableObstructionDetection} on:click={handleClick}>
+      Obstructions: {status}
+    </button>
+    <p class="badge"><b>Hint:</b> Open dev console to see debug output.</p>
   </div>
   <div class="flex justify-between">
     <div class="w-1/2 mr-4 h-64 block"></div>
@@ -123,7 +125,6 @@
     border-radius: 4px;
     display: inline-block;
     color: #111;
-    display: inline-block;
     padding: 8px 16px;
   }
 
@@ -140,10 +141,14 @@
   }
 
   #obstructions {
-    padding: 8px 16px;
-    position: fixed;
-    right: 4px;
-    top: 4px;
+    background: #eee;
+    border: 0;
+    margin-right: 8px;
+  }
+
+  #obstructions.on {
+    background-color: #4a90e2;
+    color: #fff;
   }
 
   #overlay {
