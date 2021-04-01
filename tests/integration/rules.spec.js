@@ -38,7 +38,7 @@ describe('rules.spec.js', () => {
 
     cy.findByTestId('middle').contains(secondRule);
 
-    cy.scrollTo(0, 480, { duration: 1000 });
+    cy.scrollTo(0, 400, { duration: 1000 });
 
     cy.wait(3000);
 

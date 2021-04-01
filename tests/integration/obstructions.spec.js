@@ -14,7 +14,7 @@ describe('obstructions.spec.js', () => {
 
     cy.wait(1000);
 
-    cy.scrollTo(0, 780, { duration: 800 });
+    cy.scrollTo(0, 760, { duration: 800 });
 
     cy.findByTestId('middle').contains(firstRule);
 
