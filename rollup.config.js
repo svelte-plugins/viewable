@@ -24,11 +24,12 @@ export default () => {
         svelte({
           compilerOptions: {
             dev: !production,
+            generate: 'ssr',
             cssHash({ hash, css, name, filename }) {
               return `viewable-${hash(css)}`;
             }
           },
-          emitCss: false,
+          emitCss: false
         }),
         babel({
           "extensions": [".js", ".mjs", ".html", ".svelte"],
