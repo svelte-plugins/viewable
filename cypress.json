@@ -10,6 +10,10 @@
   "requestTimeout": 50000,
   "responseTimeout": 50000,
   "chromeWebSecurity": false,
-  "viewportHeight": 1050,
-  "viewportWidth": 1680
+  "viewportHeight": 768,
+  "viewportWidth": 1024,
+  "retries": {
+    "runMode": 3,
+    "openMode": 0
+  }
 }

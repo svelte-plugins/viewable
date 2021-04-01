@@ -22,7 +22,6 @@ const artifacts = path.join(videosFolder, '../cdplogs');
 
 beforeEach(() => {
   cy.log('Loading...');
-  cy.viewport(1680, 1050);
   cy.loadApp();
 });
 
