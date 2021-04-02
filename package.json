@@ -1,6 +1,6 @@
 {
   "name": "@svelte-plugins/viewable",
-  "version": "0.1.3",
+  "version": "1.0.0",
   "license": "MIT",
   "description": "A simple rule-based approach to tracking element viewability.",
   "author": "Kieran Boyle (https://github.com/dysfunc)",
