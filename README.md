@@ -45,6 +45,8 @@ npm i -D @svelte-plugins/viewable
 </Viewable>
 ```
 
+Try the basic example in [Svelte REPL](https://svelte.dev/repl/c811481b8e1b48e9bed0f6ff7d1fa9c2).
+
 ## Changelog
 
 [Changelog](CHANGELOG.md)
