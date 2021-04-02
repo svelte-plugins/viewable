@@ -2,7 +2,7 @@
   import { afterUpdate, createEventDispatcher, onDestroy, tick } from 'svelte';
 
   /**
-   * HTML Element to track
+   * HTML Element to observe
    * @type {null | HTMLElement}
    */
   export let element;
@@ -47,17 +47,39 @@
    */
   export let gridSize = 20;
   /**
-   * Enables checking for elements obstructing the tracked elements view (popups, modals, overlays, etc.)
+   * If true, enables checking for anything obstructing the observed elements view (popups, modals, overlays, etc.)
    * @type {Boolean}
    */
   export let detectObstructions = false;
-
+  /**
+   * Containing element (Defaults to the browser viewport)
+   * @type {null | HTMLElement}
+   */
   export let root = null;
+  /**
+   * Margin offset of the containing element
+   * @type {String}
+   */
   export let rootMargin = '0px';
+   /**
+    * Array of visibility thresholds that will result in a callback when
+    * the observed element crosses that each threshold (.1 = 10% visible inside of its container)
+    */
   export let threshold = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1];
-
+  /**
+   * Observed element metadata
+   * @type {null | Entry}
+   */
   export let entry = null;
+  /**
+   * If true, the observed element is intersecting
+   * @type {Boolean}
+   */
   export let intersecting = false;
+  /**
+   * IntersectionObserver instance
+   * @type {null | IntersectionObserver}
+   */
   export let observer = null;
 
   let ready = null;

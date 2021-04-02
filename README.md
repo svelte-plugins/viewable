@@ -59,8 +59,9 @@ Try the basic example in [Svelte REPL](https://svelte.dev/repl/c811481b8e1b48e9b
 | detectObstructions | If `true`, obstructions impacting the element will affect measurement | 'boolean' (default: `false`)                                                          |
 | root         | Containing element                                                | `null` or `HTMLElement` (default: `null`)                                                       |
 | rootMargin   | Margin offset of the containing element                           | `string` (default: `"0px"`)                                                                     |
-| intersecting | `true` if the observed element is intersecting the viewport       | `boolean` (default: `false`)                                                                    |
+| intersecting | `true` if the observed element is intersecting                    | `boolean` (default: `false`)                                                                    |
 | observer     | IntersectionObserver instance                                     | [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) |
+| entry        | Observed element metadata                                         | [`IntersectionObserverEntry`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry) |
 | debug        | If `true`, debug ouput will be logged to console                  | `boolean` (default: `false`)                                                                    |
 
 #### rules
@@ -96,7 +97,7 @@ The properties below can be used to assist with debugging any issues you might h
 | percentY     | Percentage of vertical viewable area                              | `number` (default: `0`) |
 
 
-### Dispatched events
+### Events
 
 - **on:observe**: Fired when an intersection change occurs (type `IntersectionObserverEntry`)
 - **on:intersect**: Fired when an intersection change occurs and the element is intersecting (type `IntersectionObserverEntry`)
