@@ -53,7 +53,7 @@ Try the basic example in [Svelte REPL](https://svelte.dev/repl/c811481b8e1b48e9b
 | Prop name    | Description                                                       | Value                                                                                           |
 | :----------- | :---------------------------------------------------------------- | :---------------------------------------------------------------------------------------------- |
 | element      | Element to observe                                                | `HTMLElement`                                                                                   |
-| rules        | Viewability rules                                                 | `object` (default: `null`)                                                                      |
+| [rules](#rules)        | Viewability rules                                                 | `object` (default: `null`)                                                                      |
 | intervalRate | Rate to check measurement while intersecting (ms)                 | `number` (default: `200`)                                                                       |
 | gridSize     | Size of the obstruction grid                                      | `number` (default: `20`)                                                                        |
 | detectObstructions | If `true`, obstructions impacting the element will affect measurement | 'boolean' (default: `false`)                                                          |
