@@ -54,7 +54,7 @@ describe(Viewable.name, () => {
   it('should execute rules when duration and percentage have been meet (immediate)', async () => {
     const mock = jest.fn();
 
-    await TestHarness({ debug: true, enableObstructionDetection: true, rules: { immediate: { fn: mock } } });
+    await TestHarness({ debug: true, detectObstructions: true, rules: { immediate: { fn: mock } } });
 
     onIntersectionMock([{ isIntersecting: true }]);
 
@@ -71,7 +71,7 @@ describe(Viewable.name, () => {
     const fn = jest.fn();
 
     const { container } = await TestHarness({
-      enableObstructionDetection: true,
+      detectObstructions: true,
       rules: {
         fifty4six: {
           percentage: 50,

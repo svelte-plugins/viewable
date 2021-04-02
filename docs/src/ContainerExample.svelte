@@ -1,7 +1,7 @@
 <script>
   import Viewable from "@svelte-plugins/viewable";
 
-  export let enableObstructionDetection = false;
+  export let detectObstructions = false;
 
   let events = [];
   let element;
@@ -24,12 +24,20 @@
     whenFourtyForTwo: { duration: 2, percentage: 40, fn },
     // do something when this is 50% in view for 4 seconds
     whenFiftyForFour: { duration: 4, percentage: 50, fn },
-      // do something when this is 100% in view for 6 seconds
+    // do something when this is 100% in view for 6 seconds
     whenHundredForSix: { duration: 6, percentage: 100, fn }
   };
 </script>
 
-<Viewable bind:duration bind:percent bind:percentY bind:percentX {rules} {element} {enableObstructionDetection} {debug}>
+<Viewable
+  bind:duration
+  bind:percent
+  bind:percentY
+  bind:percentX
+  {rules}
+  {element}
+  {detectObstructions}
+  {debug}>
   <div bind:this={element} class={`${activeRule}`}>
     <slot></slot>
 

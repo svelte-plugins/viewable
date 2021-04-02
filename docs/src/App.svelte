@@ -1,21 +1,21 @@
 <script>
   import ContainerExample from './ContainerExample.svelte';
 
-  let enableObstructionDetection = false;
+  let detectObstructions = false;
   let status = 'Hidden';
 
-  const handleClick = () => (enableObstructionDetection = !enableObstructionDetection);
+  const handleClick = () => (detectObstructions = !detectObstructions);
 
-  $: status = enableObstructionDetection ? 'Visible' : 'Hidden';
+  $: status = detectObstructions ? 'Visible' : 'Hidden';
 </script>
 
-{#if enableObstructionDetection}
+{#if detectObstructions}
   <div id="overlay"></div>
 {/if}
 
 <header>
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <button id="obstructions" class="badge" data-testid="toggle-obstructions" class:on={enableObstructionDetection} on:click={handleClick}>
+    <button id="obstructions" class="badge" data-testid="toggle-obstructions" class:on={detectObstructions} on:click={handleClick}>
       Obstructions: {status}
     </button>
     <p class="badge"><b>Hint:</b> Open dev console to see debug output.</p>
@@ -48,7 +48,7 @@
     </div>
     <div class="flex">
       <div class="flex-1 h-64 block" data-testid="top">
-        <ContainerExample enableObstructionDetection={enableObstructionDetection} />
+        <ContainerExample {detectObstructions} />
       </div>
     </div>
     <div class="flex flex-col w-4/6 space-y-2">
@@ -70,7 +70,7 @@
     </div>
     <div class="flex">
       <div class="flex-1 h-64 block" data-testid="middle">
-        <ContainerExample enableObstructionDetection={enableObstructionDetection}>
+        <ContainerExample {detectObstructions}>
           Hello World!
         </ContainerExample>
       </div>

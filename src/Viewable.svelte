@@ -1,5 +1,5 @@
 <script>
-  import { onDestroy, afterUpdate, tick } from 'svelte';
+  import { afterUpdate, createEventDispatcher, onDestroy, tick } from 'svelte';
 
   /**
    * HTML Element to track
@@ -7,7 +7,7 @@
    */
   export let element;
   /**
-   * Objecting containging viewability rulesets
+   * Viewability rules object for this element
    * @type {null | Object}
    */
   export let rules;
@@ -50,10 +50,21 @@
    * Enables checking for elements obstructing the tracked elements view (popups, modals, overlays, etc.)
    * @type {Boolean}
    */
-  export let enableObstructionDetection = false;
+  export let detectObstructions = false;
+
+  export let root = null;
+  export let rootMargin = '0px';
+  export let threshold = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1];
+
+  export let entry = null;
+  export let intersecting = false;
+  export let observer = null;
 
   let ready = null;
   let timer = null;
+  let prevRootMargin = null;
+
+  const dispatch = createEventDispatcher();
 
   const definitions = [];
 
@@ -191,7 +202,7 @@
     percentY = (visibleHeightRatio * 100).toFixed(0);
     percent = (percentageViewable * 100).toFixed(0);
 
-    if (enableObstructionDetection && isObstructed(rect, threshold)) {
+    if (detectObstructions && isObstructed(rect, threshold)) {
       return 0;
     }
 
@@ -226,23 +237,29 @@
 
           // check if threshold has been met or exceeded
           if (duration >= definition.duration) {
-            // if definition timer, reset it
-            // if observer, unobserve
-            if (definition.observer) {
-              definition.observer.unobserve(element);
-            }
             // issue callback to fire beacon
             definition.callback(definition);
             // update history timestamp
             definition.history = Date.now();
-            // remove definition so we aren't duplicating events
-            definitions.splice(i, 1);
-            i = i - 1;
+
+            if (!definition.repeat) {
+              // remove definition so we aren't duplicating events
+              definitions.splice(i, 1);
+              // update our count
+              i = i - 1;
+            }
 
             logger(definitions);
 
             if (!definitions.length) {
               logger(`[ Finished - ${definition.history} ]`);
+
+              dispatch('complete', rules);
+
+              if (observer) {
+                observer.unobserve(element);
+                observer.disconnect();
+              }
 
               if (timer) {
                 clearInterval(timer);
@@ -259,47 +276,52 @@
 
   const track = (definition) => {
     const onIntersection = (entries) => {
-      const entry = entries[0];
-
+      entry = entries[0];
+      intersecting = entry.isIntersecting;
       // element has left the viewport, clear definition timer/history/duration
-      if (!entry.isIntersecting) {
+      if (!intersecting) {
         definition.history = null;
       } else {
         // check if view threshold has been met
-        if (entry.isIntersecting && !timer) {
+        if (intersecting && !timer) {
           timer = setInterval(checkViewability, intervalRate);
           checkViewability();
         }
       }
     };
 
-    if (!definition.observer) {
-      const observer = new IntersectionObserver(onIntersection, {
-        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
-      });
+    if (!observer) {
+      observer = new IntersectionObserver(onIntersection, { root, rootMargin, threshold });
 
       observer.observe(element);
-
-      definition.observer = observer;
     }
   };
 
   afterUpdate(async () => {
+    if (entry !== null) {
+      dispatch('observe', entry);
+
+      if (entry.isIntersecting) {
+        dispatch('intersect', entry);
+      }
+    }
+
     await tick();
 
     if (element !== null && !ready) {
       createRuleDefinitions();
       ready = true;
     }
+
+    if (prevRootMargin && rootMargin !== prevRootMargin) {
+      if (observer) {
+        observer.disconnect();
+        ready = false;
+      }
+    }
   });
 
-  onDestroy(() => {
-    definitions.forEach((definition) => {
-      if (definition.observer) {
-        definition.observer.disconnect();
-      }
-    });
-  });
+  onDestroy(() => observer && observer.disconnect());
 </script>
 
-<slot />
+<slot {duration} {entry} {intersecting} {observer} {percent} {percentX} {percentY} />
