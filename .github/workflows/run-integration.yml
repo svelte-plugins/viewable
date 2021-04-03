@@ -1,8 +1,10 @@
 name: Run integration tests
 on:
-  pull_request:
+  push:
     branches:
       - main
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
   build:
     runs-on: ubuntu-latest
