@@ -20,3 +20,7 @@ jobs:
         name: unit-tests
         path: ${{ github.workspace }}/coverage/
         retention-days: 5
+    - uses: codecov/codecov-action@v1.3.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        directory: ${{ github.workspace }}/coverage/
