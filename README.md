@@ -1,5 +1,6 @@
 [![Run unit tests](https://github.com/svelte-plugins/viewable/actions/workflows/run-unit.yml/badge.svg)](https://github.com/svelte-plugins/viewable/actions/workflows/run-unit.yml)
 [![Run integration tests](https://github.com/svelte-plugins/viewable/actions/workflows/run-integration.yml/badge.svg)](https://github.com/svelte-plugins/viewable/actions/workflows/run-integration.yml)
+[![codecov](https://codecov.io/gh/svelte-plugins/viewable/branch/main/graph/badge.svg?token=M4JCW0TXOV)](https://codecov.io/gh/svelte-plugins/viewable)
 
 # @svelte-plugins/viewable
 
