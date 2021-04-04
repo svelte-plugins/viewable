@@ -38,7 +38,7 @@
   {element}
   {detectObstructions}
   {debug}>
-  <div bind:this={element} class={`${activeRule}`}>
+  <div bind:this={element} class={activeRule}>
     <slot></slot>
 
     <p>Duration: {duration}s</p>
@@ -79,14 +79,12 @@
   div.whenHundredForSix:before {
     background: rgba(255,255,255, .75);
     border-radius: 100%;
-    bottom: 20px;
     content: "🎉";
     height: 100px;
     font-size: 3em;
     left: calc(50% - 50px);
     line-height: 100px;
     position: absolute;
-    right: 0;
     text-align: center;
     top: calc(50% - 50px);
     width: 100px;
