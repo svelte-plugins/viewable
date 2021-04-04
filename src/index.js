@@ -1,3 +1,1 @@
-import Viewable from './Viewable.svelte';
-
-export default Viewable;
+export { default } from './Viewable.svelte';
