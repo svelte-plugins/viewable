@@ -9,6 +9,7 @@ export default defineConfig(({ command, mode }) => {
   const isProduction = mode === 'production'
 
   return {
+    base: '',
     css: {
       postcss: {
         plugins: [
