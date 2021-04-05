@@ -4,7 +4,11 @@
 
 # @svelte-plugins/viewable
 
-A simple rule-based approach to tracking element viewability.
+A simple rule-based approach to tracking element viewability. 
+
+This provides the ability to define multiple viewability rules with callbacks for a single element. This comes in handy for instrumentation (specifically dwell time), ad tracking and beaconing, lazy-loading content or images, or doing fancy things at various trigger points. 
+
+If you're simply looking for a Svelte flavor of IntersectionObserver visit [svelte-intersection-observer](https://github.com/metonym/svelte-intersection-observer).
 
 Try it in the [Svelte REPL](https://svelte.dev/repl/47fe04909fd14ee5ad5d02390cc147b1).
 
