@@ -1,4 +1,4 @@
-name: Run integration tests
+name: Unit Tests
 on:
   push:
     branches:
@@ -15,11 +15,14 @@ jobs:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
     - run: yarn
-    - run: yarn install:docs
-    - run: yarn test:integration
+    - run: yarn test
     - uses: actions/upload-artifact@v2
       if: failure()
       with:
-        name: integration-tests
-        path: ${{ github.workspace }}/tests/artifacts/
+        name: unit-tests
+        path: ${{ github.workspace }}/coverage/
         retention-days: 5
+    - uses: codecov/codecov-action@v1.3.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        directory: ${{ github.workspace }}/coverage/
