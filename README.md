@@ -61,7 +61,7 @@ Try the basic example in [Svelte REPL](https://svelte.dev/repl/c811481b8e1b48e9b
 | [rules](#rules)        | Viewability rules                                                 | `object` (default: `null`)                                                                      |
 | intervalRate | Rate to check measurement while intersecting (ms)                 | `number` (default: `200`)                                                                       |
 | gridSize     | Size of the obstruction grid                                      | `number` (default: `20`)                                                                        |
-| detectObstructions | If `true`, obstructions impacting the element will affect measurement | 'boolean' (default: `false`)                                                          |
+| detectObstructions | If `true`, obstructions impacting the observed elements view will be a factor during measurement | `boolean` (default: `false`)                                                          |
 | root         | Containing element                                                | `null` or `HTMLElement` (default: `null`)                                                       |
 | rootMargin   | Margin offset of the containing element                           | `string` (default: `"0px"`)                                                                     |
 | intersecting | `true` if the observed element is intersecting                    | `boolean` (default: `false`)                                                                    |
