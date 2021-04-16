@@ -50,7 +50,7 @@ npm i -D @svelte-plugins/viewable
 </Viewable>
 ```
 
-Try the basic example in [Svelte REPL](https://svelte.dev/repl/c811481b8e1b48e9bed0f6ff7d1fa9c2).
+Try the basic example in [Svelte REPL](https://svelte.dev/repl/c97c9abb9c944647a7dfed8f90d01da6?version=3.37.0).
 
 ## API
 
