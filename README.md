@@ -38,7 +38,7 @@ npm i -D @svelte-plugins/viewable
   const rules = {
     // do something when the element enters the viewport
     immediately: { duration: 0, percentage: 0, fn: immediately },
-    // do something when 50% of the element is visible for 4 seconds (consecutively)
+    // do something when 50% of the element is visible for 4.5 seconds (consecutively)
     dwell: { duration: 4.5, percentage: 50, fn: dwell },
   };
 
