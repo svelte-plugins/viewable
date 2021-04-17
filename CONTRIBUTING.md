@@ -4,14 +4,14 @@ Contributions are always welcome, no matter how big or small the contribution. B
 
 ## TLDR;
 
-```js
+```sh
 > yarn
 > yarn dev
 ```
 
 In another terminal window:
 
-```
+```sh
 > yarn --cwd ./docs && yarn --cwd ./docs dev
 ```
 
@@ -53,9 +53,8 @@ In another terminal window:
 I welcome your pull requests.
 
 1. Fork the repo and create your branch from `main`.
-2. If you've added code that should be tested, add tests.
-3. If you've changed the API, update the documentation in the [README](README).
-4. Ensure the test suite passes.
+1. If you've added code that should be tested, add tests.
+1. If you've changed the API, update the [README](README) with your changes.
 
 ## License
 
