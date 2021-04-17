@@ -14,7 +14,7 @@
 !.prettierignore
 !.prettierrc.json
 !.lintstagedrc
-!.huskyrc
+!.husky
 !.storybook
 
 # generated

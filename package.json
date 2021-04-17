@@ -13,7 +13,7 @@
     "url": "https://github.com/svelte-plugins/svelte-viewable.git"
   },
   "homepage": "https://github.com/svelte-plugins/svelte-viewable",
-  "bugs": "https://github.com/svelte-viewable/issues",
+  "bugs": "https://github.com/svelte-plugins/svelte-viewable/issues",
   "keywords": [
     "viewability",
     "viewable",
@@ -36,6 +36,7 @@
     "import": "./lib/index.mjs"
   },
   "scripts": {
+    "prepack": "husky install",
     "dev": "rollup -cw",
     "bundle": "rollup -c",
     "deploy": "npx gh-pages -d dist",
@@ -69,7 +70,7 @@
     "eslint-plugin-jest": "^24.3.2",
     "eslint-plugin-svelte3": "^3.1.2",
     "figlet": "^1.2.4",
-    "husky": "^4.3.8",
+    "husky": "^6.0.0",
     "jest": "^26.6.3",
     "jest-transform-svelte": "^2.1.1",
     "lint-staged": "^10.5.4",
