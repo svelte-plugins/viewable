@@ -1,6 +1,6 @@
 # CONTRIBUTING
 
-Contributions are always welcome, no matter how big or small the contribution. Before contributing, please read the [code of conduct](COC.md).
+Contributions are always welcome, no matter how big or small the contribution. Before contributing, please read the [Code of Conduct](COC.md).
 
 ## TLDR;
 
@@ -56,7 +56,6 @@ I welcome your pull requests.
 2. If you've added code that should be tested, add tests.
 3. If you've changed the API, update the documentation in the [README](README).
 4. Ensure the test suite passes.
-5. Make sure your code lints.
 
 ## License
 
