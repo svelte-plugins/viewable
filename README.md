@@ -108,6 +108,14 @@ The properties below can be used to assist with debugging any issues you might h
 - **on:intersect**: Fired when an intersection change occurs and the element is intersecting (type `IntersectionObserverEntry`)
 - **on:complete**: Fired when all rules have been executed
 
+## Development
+
+Read the [Contributions](CONTRIBUTING.md) for instructions on how to setup your development environment.
+
+## Contributing
+
+Contributions are always welcome and appreciated. Before contributing, please read the [Code of Conduct](COC.md).
+
 ## Changelog
 
 [Changelog](CHANGELOG.md)
