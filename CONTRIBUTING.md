@@ -50,11 +50,49 @@ In another terminal window:
    
 ## Pull Requests
 
-I welcome your pull requests.
-
 1. Fork the repo and create your branch from `main`.
 1. If you've added code that should be tested, add tests.
 1. If you've changed the API, update the [README](README) with your changes.
+1. Follow the instructions in the PR template
+
+## Commit Messages
+
+Please make sure your commits follow semantic commit messaging.
+
+Format: `<type>(<scope>): <subject>`
+
+`<scope>` is optional
+
+### Example
+
+```
+feat: add hat wobble
+^--^  ^------------^
+|     |
+|     +-> Summary in present tense.
+|
++-------> Type: chore, docs, feat, fix, refactor, style, or test.
+```
+
+### Types
+
+- `chore`: Updating packages, gulp tasks, etc; no production code change.
+- `docs`: Changes to the documentation.
+- `feat`: New feature for the user, not a new feature for build script.
+- `fix`: Bug fix for the user, not a fix to a build script.
+- `refactor`: Refactoring production code, eg. renaming a variable.
+- `style`: Formatting, missing semi colons, etc; no production code change.
+- `test`: Adding missing tests, refactoring tests; no production code change.
+
+### Usage
+
+- chore: add Oyster build script
+- docs: explain hat wobble
+- feat: add beta sequence
+- fix: remove broken confirmation message
+- refactor: share logic between 4d3d3d3 and flarhgunnstow
+- style: convert tabs to spaces
+- test: ensure Tayne retains clothing
 
 ## License
 
