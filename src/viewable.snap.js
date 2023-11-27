@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Proxy<Viewable.test> > should render the component 1`] = `
+exports[`Viewable > should render the component 1`] = `
 <body>
   <div>
     <div>

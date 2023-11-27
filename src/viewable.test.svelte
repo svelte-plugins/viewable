@@ -1,5 +1,5 @@
 <script>
-  import Viewable from './Viewable.svelte';
+  import Viewable from './viewable.svelte';
 
   let element;
 </script>

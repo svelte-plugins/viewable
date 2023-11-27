@@ -41,7 +41,7 @@
     "start": "npm --prefix ./docs install && vite & npm --prefix ./docs run dev",
     "dev": "vite",
     "build": "vite build",
-    "build:docs": "npm --prefix ./docs run build",
+    "build:docs": "npm --prefix ./docs install && npm --prefix ./docs run build",
     "deploy": "npm run build:docs && npx gh-pages -d docs/build",
     "publish": "npm run build && npm publish --access=public",
     "lint": "eslint -c ./.eslintrc.json --fix \"src/**/*.{.js,svelte}\"",
