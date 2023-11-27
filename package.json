@@ -5,6 +5,7 @@
   "description": "A simple rule-based approach to tracking element viewability.",
   "author": "Kieran Boyle (https://github.com/dysfunc)",
   "svelte": "./src/index.js",
+  "types": "./types/index.d.ts",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "type": "module",
