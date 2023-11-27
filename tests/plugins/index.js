@@ -12,10 +12,10 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 
-const ChromeDebug = require('./chrome.js');
-const fs = require('fs');
+import ChromeDebug from './chrome';
+import fs from 'fs';
 
-module.exports = (on, config) => {
+export const setupNodeEvents = (on, config) => {
   on('before:browser:launch', (browser = {}, launchOptions) => {
     launchOptions = ChromeDebug.browserLaunchHandler(
       browser,
@@ -132,3 +132,5 @@ module.exports = (on, config) => {
     }
   });
 };
+
+export default setupNodeEvents;

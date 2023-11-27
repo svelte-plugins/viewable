@@ -1,5 +1,5 @@
 <script>
-  import ContainerExample from './ContainerExample.svelte';
+  import ContainerExample from './container.svelte';
 
   let detectObstructions = false;
   let status = 'Hidden';

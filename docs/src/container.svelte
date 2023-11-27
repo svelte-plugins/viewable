@@ -1,5 +1,5 @@
 <script>
-  import Viewable from "@svelte-plugins/viewable";
+  import { Viewable } from "@svelte-plugins/viewable";
 
   export let detectObstructions = false;
 

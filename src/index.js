@@ -1,1 +1,1 @@
-export { default } from './Viewable.svelte';
+export { default as Viewable } from './viewable.svelte';

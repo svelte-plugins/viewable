@@ -2,11 +2,12 @@
 
 # except
 !.editorconfig
+!.eslintignore
 !.eslintrc.json
 !.github
 !.gitignore
 !.gitkeep
-!.lintstagedrc.js
+!.lintstagedrc
 !.node-version
 !.npmignore
 !.npmrc
@@ -20,8 +21,8 @@
 # generated
 .vercel
 /node_modules
-/lib
 /dist
+/cypress
 
 # testing
 coverage

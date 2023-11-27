@@ -1,5 +1,5 @@
-const ChromeDebug = require('chrome-remote-interface');
-const chalk = require('chalk');
+import ChromeDebug from 'chrome-remote-interface';
+import chalk from 'chalk';
 const isMac = process.platform === 'darwin';
 
 let networkFilter;
@@ -262,7 +262,7 @@ function browserLaunchHandler(browser = {}, launchOptions, consoleFilter, netFil
   return launchOptions;
 }
 
-module.exports = {
+export default {
   _ensureRdpPort: ensureRdpPort,
   install,
   browserLaunchHandler,

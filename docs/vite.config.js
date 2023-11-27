@@ -1,9 +1,6 @@
-import svelte from '@sveltejs/vite-plugin-svelte'
+import { defineConfig } from 'vite';
+import { svelte } from '@sveltejs/vite-plugin-svelte';
 import autoprefixer from 'autoprefixer'
-import vite from 'vite'
-import fs from 'fs';
-
-const { defineConfig } = vite;
 
 export default defineConfig(({ command, mode }) => {
   const isProduction = mode === 'production'
@@ -19,12 +16,18 @@ export default defineConfig(({ command, mode }) => {
         ],
       },
     },
-    plugins: [
-      svelte()
-    ],
     build: {
       minify: isProduction,
       outDir: 'build',
+    },
+    plugins: [
+      svelte()
+    ],
+    server: {
+      host: 'localhost',
+      port: 3000,
+      open: !isProduction
     }
   }
 })
+
