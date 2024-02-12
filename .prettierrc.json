@@ -1,5 +1,5 @@
 {
-  "printWidth": 180,
+  "printWidth": 120,
   "trailingComma": "none",
   "tabWidth": 2,
   "semi": true,
@@ -9,5 +9,14 @@
   "svelteSortOrder": "options-scripts-markup-styles",
   "svelteStrictMode": false,
   "svelteBracketNewLine": true,
-  "svelteAllowShorthand": true
+  "svelteAllowShorthand": true,
+  "plugins": ["prettier-plugin-svelte"],
+  "overrides": [
+    {
+      "files": "*.svelte",
+      "options": {
+        "parser": "svelte"
+      }
+    }
+  ]
 }

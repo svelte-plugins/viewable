@@ -16,13 +16,14 @@
 !.lintstagedrc
 !.husky
 !.storybook
+!.vercel
 
 # generated
-.vercel
 /node_modules
-/lib
 /dist
 
 # testing
 coverage
 artifacts
+test-results
+playwright-report

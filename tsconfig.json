@@ -1,0 +1,27 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "include": [
+    "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules/*",
+    "src/**/*.js",
+    "src/**/*.svelte"
+  ],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "moduleResolution": "node",
+    "target": "es2022",
+    "allowJs": false,
+    "checkJs": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "paths": {
+      "@svelte-plugins/viewable": ["src/index"]
+    },
+    "types": ["vitest/globals"]
+  }
+}
