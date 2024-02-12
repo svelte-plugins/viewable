@@ -28,7 +28,7 @@ Try it in the [Svelte REPL](https://svelte.dev/repl/47fe04909fd14ee5ad5d02390cc1
 ## Usage
 ```svelte
 <script>
-  import Viewable from "@svelte-plugins/viewable";
+  import { Viewable } from "@svelte-plugins/viewable";
 
   const immediately = (definition) => {
     console.log('element has crossed the viewport');
@@ -69,7 +69,7 @@ Try the basic example in [Svelte REPL](https://svelte.dev/repl/c97c9abb9c944647a
 | rootMargin   | Margin offset of the containing element                           | `string` (default: `"0px"`)                                                                     |
 | intersecting | `true` if the observed element is intersecting                    | `boolean` (default: `false`)                                                                    |
 | observer     | IntersectionObserver instance                                     | [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) |
-| entry        | Observed element metadata                                         | [`IntersectionObserverEntry`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry) |
+| entry        | IntersectionObserver Entry                                           | [`IntersectionObserverEntry`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry) |
 | debug        | If `true`, debug ouput will be logged to console                  | `boolean` (default: `false`)                                                                    |
 
 #### rules
@@ -103,7 +103,8 @@ The properties below can be used to assist with debugging any issues you might h
 | percent      | Percentage of total viewable area (X+Y)                           | `number` (default: `0`) |
 | percentX     | Percentage of horizontal viewable area                            | `number` (default: `0`) |
 | percentY     | Percentage of vertical viewable area                              | `number` (default: `0`) |
-
+| entry        | IntersectionObserver Entry                                        | `object` (default: `null`) |
+| observer     | IntersectionObserver                                              | `object` (default: `null`) |
 
 ### Events
 
