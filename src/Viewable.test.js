@@ -1,9 +1,9 @@
 import { render } from '@testing-library/svelte';
 import Viewable from './Viewable.test.svelte';
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
-describe(Viewable.name, () => {
+describe('Viewable', () => {
   let onIntersectionMock;
 
   const DEFAULT_CONFIG = {
@@ -11,7 +11,7 @@ describe(Viewable.name, () => {
       immediate: {
         duration: 0,
         percentage: 0,
-        fn: jest.fn()
+        fn: vi.fn()
       }
     }
   };
@@ -21,20 +21,20 @@ describe(Viewable.name, () => {
   beforeEach(() => {
     global.IntersectionObserver = class IntersectionObserver {
       constructor(onIntersection) {
-        onIntersectionMock = jest.fn(onIntersection);
+        onIntersectionMock = vi.fn(onIntersection);
       }
       disconnect() {}
       observe() {}
       unobserve() {}
     };
 
-    document.elementFromPoint = jest.fn();
+    document.elementFromPoint = vi.fn();
 
-    DEFAULT_CONFIG.rules.immediate.fn = jest.fn();
+    DEFAULT_CONFIG.rules.immediate.fn = vi.fn();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
+    vi.clearAllTimers();
   });
 
   it('should render the component', async () => {
@@ -52,23 +52,23 @@ describe(Viewable.name, () => {
   });
 
   it('should execute rules when duration and percentage have been meet (immediate)', async () => {
-    const mock = jest.fn();
+    const mock = vi.fn();
 
     await TestHarness({ debug: true, detectObstructions: true, rules: { immediate: { fn: mock } } });
 
     onIntersectionMock([{ isIntersecting: true }]);
 
-    jest.runAllTimers();
+    vi.runAllTimers();
 
     expect(mock).toHaveBeenCalled();
   });
 
   it('should execute rules when duration and percentage have been meet (delayed)', async () => {
-    const mockDateNow = jest.fn();
+    const mockDateNow = vi.fn();
 
     global.Date.now = mockDateNow;
 
-    const fn = jest.fn();
+    const fn = vi.fn();
 
     const { container } = await TestHarness({
       detectObstructions: true,
@@ -83,7 +83,7 @@ describe(Viewable.name, () => {
 
     const element = container.firstChild.firstChild;
 
-    element.getBoundingClientRect = jest.fn(() => ({
+    element.getBoundingClientRect = vi.fn(() => ({
       width: 100,
       height: 100,
       top: 0,
@@ -92,7 +92,7 @@ describe(Viewable.name, () => {
       right: 200
     }));
 
-    document.elementFromPoint = jest.fn().mockReturnValue(element);
+    document.elementFromPoint = vi.fn().mockReturnValue(element);
 
     mockDateNow.mockReturnValueOnce(1617133864079);
 
@@ -102,7 +102,7 @@ describe(Viewable.name, () => {
 
     mockDateNow.mockReturnValue(1617133870891);
 
-    jest.advanceTimersByTime(6000);
+    vi.advanceTimersByTime(6000);
 
     expect(fn).toHaveBeenCalled();
   });
