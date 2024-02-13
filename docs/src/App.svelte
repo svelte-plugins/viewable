@@ -92,7 +92,7 @@
     <div class="flex items-stretch h-48">
       <div class="flex-1 mr-4 block"></div>
       <div class="flex-1 block" data-testid="bottom">
-        <ContainerExample />
+        <ContainerExample {detectObstructions} />
       </div>
       <div class="flex-1 ml-4 block"></div>
     </div>
